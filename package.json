@@ -1,0 +1,23 @@
+{
+  "name": "lorem-blankum",
+  "version": "1.0.0",
+  "description": "Lorem ipsum generator that pulls from Twitter to create filler text that sounds like [blank].",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oluoluoxenfree/lorem-blankum.git"
+  },
+  "author": "olu niyi-awosusi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oluoluoxenfree/lorem-blankum/issues"
+  },
+  "homepage": "https://github.com/oluoluoxenfree/lorem-blankum",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4"
+  }
+}
