@@ -4,7 +4,7 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  height: 90vh;
+  height: 85vh;
   align-content: center;
   align-items: center;
   justify-content: center; }
@@ -17,16 +17,31 @@ input.search-term {
   background-color: transparent;
   border-style: solid;
   border-width: 0px 0px 5px 0px;
-  border-color: darkred;
+  border-color: #000;
   border-radius: 0;
   font-size: 3rem;
-  display: none; }
+  display: none;
+  width: 500px; }
   input.search-term:focus {
     background-color: transparent;
     border-style: solid;
-    border-width: 0px 0px 5px 0px;
-    border-color: purple;
+    border-width: 0 0 5px;
+    border-color: #f3003d;
     border-radius: 0; }
+
+::-webkit-input-placeholder {
+  text-align: center; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center; }
+
+:-ms-input-placeholder {
+  text-align: center; }
 
 #typed-cursor {
   opacity: 1;
@@ -61,3 +76,15 @@ input.search-term {
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  text-align: center; }
+  footer svg {
+    bottom: 0;
+    width: 5rem;
+    height: 5rem; }
+    footer svg:hover {
+      fill: #f3003d; }
