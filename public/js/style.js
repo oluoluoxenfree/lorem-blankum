@@ -1,7 +1,7 @@
 var words = [],
     envVars,
     client,
-    Twitter = require('twitter'),
+    Twitter = require('node-twitter'),
     config = require( './config.json');
 
 var client = new Twitter({
