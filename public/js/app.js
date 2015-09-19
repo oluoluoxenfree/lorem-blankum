@@ -27,5 +27,5 @@ $(document).ready(function() {
     }
   });
 
-  $('.ipsum-area').text(tweets.text);
-});
+//   $('.ipsum-area').text(tweets.text);
+// });
