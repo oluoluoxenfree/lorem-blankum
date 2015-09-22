@@ -28,11 +28,11 @@ server.route({
   method: 'GET',
   path: '/{param*}',
   handler: {
-  directory :{
-    path : Path.join(__dirname),
-    listing: false
-        }
+    directory :{
+      path : Path.join(__dirname),
+      listing: false
     }
+  }
 });
 
 server.route({
