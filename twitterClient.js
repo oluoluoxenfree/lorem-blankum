@@ -8,15 +8,14 @@ var Twitter = require('twitter'),
     });
 
 module.exports = {
-  twitterRequest: function(req) {
+  twitterRequest: function(req, res) {
     var params = req;
     client.get('statuses/user_timeline', params, function(error, tweets, response){
       if (error) {
         console.log(error);
       }
       if (!error) {
-        console.log(tweets);
-        return response, tweets;
+        return res(tweets);
       }
     });
   }

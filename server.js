@@ -39,7 +39,7 @@ server.route({
   method: 'GET',
   path: '/{value}',
   handler: function(req, res) {
-    app.twitterRequest(req.url.query);
+    return app.twitterRequest(req.url.query, res);
   }
 });
 
