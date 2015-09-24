@@ -1,3 +1,5 @@
+'use strict';
+
 var Hapi = require('hapi');
 var Inert = require('inert');
 var Path = require('path');

@@ -1,3 +1,5 @@
+'use strict';
+
 var Twitter = require('twitter'),
     config = require( './config.json'),
     client = new Twitter({
