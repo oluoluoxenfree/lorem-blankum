@@ -10,10 +10,11 @@ $(document).ready(function() {
         data: {screen_name: searchTerm, include_rts: false},
         url: './' + searchTerm
       }).done(function(tweets) {
-        var AllSentences = filterSentences(tweets);
-        var AllWords = collectAllTheWords(sentences);
-        var wantedWords = removeUndesirables(AllWords);
-        $('.ipsum-area').text(wantedWords);
+        var allSentences = filterSentences(tweets);
+        var allWords = collectAllTheWords(allSentences);
+        var wantedWords = removeUndesirables(allWords);
+        var withoutEmpties = removeEmptyStrings(wantedWords);
+        $('.ipsum-area').text(withoutEmpties);
       });
     }
   });
@@ -36,7 +37,16 @@ var ipsumIngredients = [];
 function removeUndesirables(words) {
   words.map(function (str) {
     ipsumIngredients.push(str.replace(/([#@]|http)\S+\s*/, ''));
-    console.log(str);
   });
   return ipsumIngredients;
+}
+
+
+function removeEmptyStrings(words) {
+  for(var i = words.length -1; i > -1; i--) {
+    if (words[i].substring(0) === "") {
+      words.splice(i, 1);
+    }
+  }
+  return words;
 }
