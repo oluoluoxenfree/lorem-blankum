@@ -18,14 +18,11 @@
   "homepage": "https://github.com/oluoluoxenfree/lorem-blankum",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-sass": "^2.0.4",
-    "webpack": "^1.12.2"
+    "gulp-sass": "^2.0.4"
   },
   "dependencies": {
-    "browserify": "^11.1.0",
     "hapi": "^10.0.0",
     "inert": "^3.0.1",
     "twitter": "^1.2.5",
-    "vinyl-source-stream": "^1.1.0"
   }
 }

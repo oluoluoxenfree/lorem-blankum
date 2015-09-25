@@ -10,7 +10,10 @@ $(document).ready(function() {
         data: {screen_name: searchTerm, include_rts: false},
         url: './' + searchTerm
       }).done(function(tweets) {
-        $('.ipsum-area').text(filterSentences(tweets));
+        var AllSentences = filterSentences(tweets);
+        var AllWords = collectAllTheWords(sentences);
+        var wantedWords = removeUndesirables(AllWords);
+        $('.ipsum-area').text(wantedWords);
       });
     }
   });
@@ -21,10 +24,19 @@ function filterSentences(tweets) {
   for(var i = 0; i < tweets.length; i++) {
     sentences.push(tweets[i].text);
   }
-   console.log(sentences);
    return sentences;
 }
 
-function removeHyperlinks() {}
+function collectAllTheWords(sentences) {
+  var words = sentences.toString().split(' ');
+  return words;
+}
 
-function collectAllTheWords() {}
+var ipsumIngredients = [];
+function removeUndesirables(words) {
+  words.map(function (str) {
+    ipsumIngredients.push(str.replace(/([#@]|http)\S+\s*/, ''));
+    console.log(str);
+  });
+  return ipsumIngredients;
+}
