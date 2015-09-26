@@ -14,7 +14,8 @@ $(document).ready(function() {
         var allWords = collectAllTheWords(allSentences);
         var wantedWords = removeUndesirables(allWords);
         var withoutEmpties = removeEmptyStrings(wantedWords);
-        $('.ipsum-area').text(withoutEmpties);
+        var finishedIpsum = constructIpsum(withoutEmpties);
+        $('.ipsum-area').text(finishedIpsum);
       });
     }
   });
@@ -49,4 +50,16 @@ function removeEmptyStrings(words) {
     }
   }
   return words;
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function constructIpsum(words) {
+  var ipsumArray = [];
+  for(var i = 0; i < 51; i++) {
+    ipsumArray.push(words[getRandomInt(0, (words.length -1))]);
+  }
+  return ipsumArray.join(' ');
 }
