@@ -5,10 +5,10 @@ var Twitter = require('twitter');
 function tryRequire(module) {
   try {
     return require(module);
-  } catch (e) { }
+  } catch (error) { }
 }
 
-var config = tryRequire('.config.json');
+var config = tryRequire('.config.json') || {};
 
 var client = new Twitter({
     consumer_key: config.cKey || process.env.C_KEY,
