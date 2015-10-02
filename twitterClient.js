@@ -13,7 +13,7 @@ try {
 }
 
 catch(err) {
-    client = new Twitter({
+    var client = new Twitter({
       consumer_key: process.env.C_KEY,
       consumer_secret: process.env.C_SECRET,
       access_token_key: process.env.AT_KEY,
