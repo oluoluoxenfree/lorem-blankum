@@ -21,7 +21,8 @@ input.search-term {
   border-radius: 0;
   font-size: 3rem;
   display: none;
-  width: 500px; }
+  width: 500px;
+  height: 5rem; }
   input.search-term:focus {
     background-color: transparent;
     border-style: solid;
