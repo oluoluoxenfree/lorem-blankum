@@ -2,13 +2,12 @@ $(document).ready(function() {
 
   $(function(){
     $(".examples").typed({
-    strings: ["First sentence.", "Second sentence.", "Click me"],
-    typeSpeed: 0
+      strings: ["@katyperry", "@barackobama", "you!"],
+      typeSpeed: 0,
+      callback: function() {
+                  $('span').remove();
+                    $('input').show();
+      }
     });
-  });
-
-  $('span').click(function() {
-    $('span').remove();
-    $('input').show();
   });
 });
