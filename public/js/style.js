@@ -6,7 +6,7 @@ $(document).ready(function() {
       typeSpeed: 0,
       callback: function() {
                   $('span').remove();
-                    $('input').show();
+                  $('input').show();
       }
     });
   });
