@@ -13,9 +13,6 @@ input[type=number] {
   width: 50vw;
   height: 20vw; }
 
-.site {
-  min-height: 100vh; }
-
 .entire {
   display: -webkit-box;
   display: -moz-box;
@@ -25,16 +22,13 @@ input[type=number] {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   position: relative;
   overflow-x: hidden; }
 
 .header-text {
-  height: 25vh;
   flex-grow: 1; }
 
 .ipsum-area {
-  min-height: 35vh;
   font-size: 3vw;
   text-align: center; }
 
@@ -112,10 +106,9 @@ input.search-term {
     opacity: 1; } }
 
 footer {
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
-  flex-grow: 1; }
+  flex-grow: 1;
+  align-self: flex-end; }
   footer svg {
     height: 8rem;
     width: 8rem; }

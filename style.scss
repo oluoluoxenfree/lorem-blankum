@@ -23,27 +23,20 @@ input[type=number] {
   height: 20vw;
 }
 
-.site {
-  min-height: 100vh;
-}
-
 .entire {
   @include flexbox();
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   position:relative;
   overflow-x:hidden
 }
 
 .header-text {
-  height: 25vh;
   flex-grow: 1;
 }
 
 .ipsum-area {
-  min-height: 35vh;
   font-size: 3vw;
   text-align: center;
 }
@@ -122,10 +115,9 @@ input.search-term {
 }
 
 footer {
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   flex-grow: 1;
+  align-self: flex-end;
 
   svg {
     height: 8rem;
