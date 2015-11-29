@@ -7,7 +7,7 @@ $(document).ready(function() {
     if ( event.which == 13 ) {
       $.ajax({
         type: 'GET',
-        data: {screen_name: searchTerm, include_rts: false},
+        data: {screen_name: searchTerm, include_rts: false, count: 200},
         url: './' + searchTerm
       }).done(function(tweets) {
         var allSentences = filterSentences(tweets);
@@ -16,6 +16,10 @@ $(document).ready(function() {
         var withoutEmpties = removeEmptyStrings(wantedWords);
         var finishedIpsum = constructIpsum(withoutEmpties);
         $('.ipsum-area').text(finishedIpsum);
+      });
+      $(".main-text").addClass('bounceOutRight');
+      $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+        $('.main-text').hide();
       });
     }
   });

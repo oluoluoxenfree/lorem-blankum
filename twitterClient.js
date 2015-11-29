@@ -8,7 +8,7 @@ function tryRequire(module) {
   } catch (error) { }
 }
 
-var config = tryRequire('.config.json') || {};
+var config = tryRequire('./config.json') || {};
 
 var client = new Twitter({
     consumer_key: config.cKey || process.env.C_KEY,
