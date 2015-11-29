@@ -3,31 +3,28 @@
 $(document).ready(function() {
   $('.options').hide();
 
-  var optionsNumber = $('.options-number').val();
+  var optionsNumber = $('.options-number');
+  var searchTerm = $('.search-term');
 
-  $( ".search-term" ).keypress(function( event ) {
-    //remove # and @ from the search string
-    var searchTerm = $('.search-term').val();
-    $('.search-term').keypress(function (e) {
-      if (e.keyCode == 13) {
-        $(".main-text").addClass('bounceOutRight');
-        $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+  //remove # and @ from the search string
+  $(searchTerm).keypress(function (e) {
+    if (e.keyCode == 13) {
+      $(".main-text").addClass('bounceOutRight');
+      $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $('.main-text').hide();
         $('.options').show().addClass('animated bounceInLeft');
-        });
-      }
-    });
-    return searchTerm;
+      });
+    }
   });
 
-  $('.options-number').keypress(function (e) {
+  $(optionsNumber).keypress(function (e) {
     if (e.keyCode == 13) {
       $('.options').addClass('bounceOutRight');
       $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $('.main-text').hide();
       $.ajax({
         type: 'GET',
-        data: {screen_name: searchTerm, include_rts: false, count: optionsNumber},
+        data: {screen_name: searchTerm.val(), include_rts: false, count: optionsNumber.val()},
         url: './' + searchTerm
       }).done(function(tweets) {
         var allSentences = filterSentences(tweets);
