@@ -2,12 +2,13 @@
 
 $(document).ready(function() {
   $('.options').hide();
+  $('.ipsum-area').hide();
 
-  var optionsNumber = $('.options-number');
-  var searchTerm = $('.search-term');
+  var $optionsNumber = $('.options-number');
+  var $searchTerm = $('.search-term');
 
   //remove # and @ from the search string
-  $(searchTerm).keypress(function (e) {
+  $searchTerm.keypress(function (e) {
     if (e.keyCode == 13) {
       $(".main-text").addClass('bounceOutRight');
       $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
@@ -17,27 +18,35 @@ $(document).ready(function() {
     }
   });
 
-  $(optionsNumber).keypress(function (e) {
+  $optionsNumber.keypress(function (e) {
+    var newFieldVal =$optionsNumber.val();
     if (e.keyCode == 13) {
-      $('.options').addClass('bounceOutRight');
-      $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-        $('.main-text').hide();
       $.ajax({
         type: 'GET',
-        data: {screen_name: searchTerm.val(), include_rts: false, count: optionsNumber.val()},
-        url: './' + searchTerm
+        data: {screen_name: $searchTerm.val(), include_rts: false, count: newFieldVal},
+        dataType: 'json',
+        url: './' + $searchTerm.val(),
+        success: function(response, textStatus, jqXHR) {
+          console.log("Yay!");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+         console.log(textStatus, errorThrown);
+        }
       }).done(function(tweets) {
         var allSentences = filterSentences(tweets);
         var allWords = collectAllTheWords(allSentences);
         var wantedWords = removeUndesirables(allWords);
         var withoutEmpties = removeEmptyStrings(wantedWords);
         var finishedIpsum = constructIpsum(withoutEmpties);
-        $('.ipsum-area').text(finishedIpsum);
+        $('.ipsum-area').text(finishedIpsum).prepend('<h3>Here you go:</h3>');
+        $('.ipsum-area').show();
       });
-      });
+    $('.options').addClass('bounceOutRight');
+    $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+      $('.main-text').hide();
+    });
     }
   });
-});
 
 var sentences = [];
 function filterSentences(tweets) {
@@ -76,8 +85,10 @@ function getRandomInt(min, max) {
 
 function constructIpsum(words) {
   var ipsumArray = [];
-  for(var i = 0; i < 51; i++) {
+  for(var i = 0; i <= (Number($optionsNumber.val()) + 1); i++) {
+    console.log($optionsNumber.val());
     ipsumArray.push(words[getRandomInt(0, (words.length -1))]);
   }
   return ipsumArray.join(' ');
 }
+});
