@@ -42,8 +42,8 @@ $(document).ready(function() {
         $('.ipsum-area').show();
       });
     $('.options').addClass('bounceOutRight');
-    $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-      $('.main-text').hide();
+    $('.options').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+      $('.options').remove();
     });
     }
   });

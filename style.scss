@@ -27,13 +27,10 @@ input[type=number] {
   @include flexbox();
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: space-around;
   position:relative;
-  overflow-x:hidden
-}
-
-.header-text {
-  flex-grow: 1;
+  overflow-x:hidden;
+  height: 90vh;
 }
 
 .ipsum-area {
@@ -115,6 +112,7 @@ input.search-term {
 }
 
 footer {
+  padding-top: 20%;
   text-align: center;
   flex-grow: 1;
   align-self: flex-end;
