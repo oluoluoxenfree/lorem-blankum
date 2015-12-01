@@ -1,9 +1,6 @@
 'use strict';
 
 $(document).ready(function() {
-  $('.options').hide();
-  $('.ipsum-area').hide();
-
   var $optionsNumber = $('.options-number');
   var $searchTerm = $('.search-term');
 
@@ -43,9 +40,15 @@ $(document).ready(function() {
       });
     $('.options').addClass('bounceOutRight');
     $('.options').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-      $('.options').remove();
+      $('.options').hide();
     });
     }
+  });
+
+  $('.reset').click(function() {
+    $('.ipsum-area').hide();
+    $('.options').hide();
+    $('.main-text').removeClass('bounceOutRight').addClass('bounceInLeft').show();
   });
 
 var sentences = [];

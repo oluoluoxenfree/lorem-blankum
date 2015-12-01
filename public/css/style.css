@@ -1,4 +1,28 @@
+html,
+body {
+  position: relative;
+  overflow-x: hidden;
+  height: 98%;
+  width: 100%; }
+
+.flex-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  min-height: 100%; }
+
+.header-text {
+  flex: 49.5 0 auto; }
+
+.container {
+  flex: 49.5 0 auto; }
+
 .options {
+  display: none;
   text-align: center;
   font-size: 6vw; }
 
@@ -13,20 +37,8 @@ input[type=number] {
   width: 50vw;
   height: 20vw; }
 
-.entire {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: space-around;
-  position: relative;
-  overflow-x: hidden;
-  height: 90vh; }
-
 .ipsum-area {
+  display: none;
   font-size: 3vw;
   text-align: center; }
 
@@ -104,10 +116,8 @@ input.search-term {
     opacity: 1; } }
 
 footer {
-  padding-top: 20%;
   text-align: center;
-  flex-grow: 1;
-  align-self: flex-end; }
+  flex: 1 0 auto; }
   footer svg {
     height: 8rem;
     width: 8rem; }
