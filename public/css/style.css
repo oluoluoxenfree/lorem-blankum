@@ -2,8 +2,14 @@ html,
 body {
   position: relative;
   overflow-x: hidden;
-  height: 98%;
-  width: 98%; }
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
 
 .flex-container {
   display: -webkit-box;
@@ -11,6 +17,7 @@ body {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  box-sizing: border-box;
   -webkit-flex-direction: column;
   flex-direction: column;
   min-height: 100%; }

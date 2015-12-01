@@ -8,7 +8,7 @@ $(document).ready(function() {
   $searchTerm.keypress(function (e) {
     if (e.keyCode == 13) {
       $(".main-text").addClass('bounceOutRight');
-      $('.main-text').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+      $('.main-text').one('mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
         $('.main-text').hide();
         $('.options').show().addClass('animated bounceInLeft');
       });
@@ -35,19 +35,19 @@ $(document).ready(function() {
         var wantedWords = removeUndesirables(allWords);
         var withoutEmpties = removeEmptyStrings(wantedWords);
         var finishedIpsum = constructIpsum(withoutEmpties);
-        $('.ipsum-area').text(finishedIpsum).prepend('<h3>Here you go:</h3>');
+        $('.ipsum-area').empty().text(finishedIpsum).prepend('<h3>Here you go:</h3>');
         $('.ipsum-area').show();
       });
-    $('.options').addClass('bounceOutRight');
-    $('.options').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-      $('.options').hide();
+    $('.options').removeClass('bounceInLeft').addClass('bounceOutRight');
+    $('.options').one('mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+      $('.options').removeClass('bounceInLeft').hide();
     });
     }
   });
 
   $('.reset').click(function() {
     $('.ipsum-area').hide();
-    $('.options').hide();
+    $('.options').removeClass('bounceInLeft bounceOutRight').hide();
     $('.main-text').removeClass('bounceOutRight').addClass('bounceInLeft').show();
   });
 
